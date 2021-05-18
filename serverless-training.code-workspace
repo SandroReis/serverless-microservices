@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "./auth-service"
+		},
+		{
+			"path": "./auction-service"
+		},
+		{
+			"path": "./notification-service"
+		}
+	],
+	"settings": {}
+}
