@@ -9,6 +9,9 @@ const dynamodb = new AWS.DynamoDB.DocumentClient()
 
 async function createAuction(event, context) {
   const { title } = event.body
+  const { email } = event.requestContext.authorizer
+  console.log(JSON.stringify(event.requestContext.authorizer))
+  console.log(JSON.stringify(event.requestContext))
   const now = new Date()
   const endDate = new Date()
   endDate.setHours(now.getHours() + 1)
@@ -22,6 +25,7 @@ async function createAuction(event, context) {
       amount: 0,
     },
     endingAt: endDate.toISOString(),
+    seller: email
   }
 
   try {
